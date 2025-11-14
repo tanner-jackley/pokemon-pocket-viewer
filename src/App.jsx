@@ -1,11 +1,14 @@
-import { useState } from "react";
-import "./App.css";
+import "./css/App.css";
+import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <h1>Pokémon Pocket Viewer</h1>
-    </>
+    <main className="main-content">
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </main>
   );
 }
 
