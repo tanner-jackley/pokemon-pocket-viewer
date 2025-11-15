@@ -3,7 +3,7 @@ function CardCard({ card }) {
     <div>
       <div>
         <img
-          src="https://assets.tcgdex.net/en/tcgp/A1/001/low.png"
+          src={`${card.image}/low.png`}
           alt={card.name}
         ></img>
       </div>
