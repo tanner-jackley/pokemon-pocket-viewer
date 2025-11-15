@@ -19,7 +19,7 @@ export default function SetSection({ set }) {
   return (
     <div className="set-section">
       <div className="set-header" onClick={() => setOpen(!open)}>
-        {set.name}
+        [{set.id}] {set.name}
       </div>
 
       {open && <CardGrid cards={cards} />}
