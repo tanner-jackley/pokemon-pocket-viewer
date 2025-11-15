@@ -1,16 +1,19 @@
 import "../css/Home.css";
-import CardCard from "../components/CardCard.jsx";
-import { getCard, getCardsFromSet } from "../services/api.js";
+import CardCard from "../components/IndividualCard.jsx";
+import { getSets } from "../services/api.js";
+import IndividualCard from "../components/IndividualCard.jsx";
+import CardGrid from "../components/CardGrid.jsx";
+import SetSection from "../components/SetSection.jsx";
 
-const cards = await getCardsFromSet("A1");
+const sets = await getSets();
 
 function Home() {
   return (
     <>
       <h1>Pokémon Pocket Viewer</h1>
-      <div className="card-grid">
-        {cards.map((card) => (
-          <CardCard key={card.id} card={card} />
+      <div>
+        {sets.map((set) => (
+          <SetSection key={set.id} set={set} />
         ))}
       </div>
     </>

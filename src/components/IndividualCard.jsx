@@ -1,11 +1,8 @@
-function CardCard({ card }) {
+function IndividualCard({ card }) {
   return (
     <div>
       <div>
-        <img
-          src={`${card.image}/low.png`}
-          alt={card.name}
-        ></img>
+        <img src={`${card.image}/low.png`} alt={card.name}></img>
       </div>
       <div>
         <h3>{card.name}</h3>
@@ -17,4 +14,4 @@ function CardCard({ card }) {
   );
 }
 
-export default CardCard;
+export default IndividualCard;
