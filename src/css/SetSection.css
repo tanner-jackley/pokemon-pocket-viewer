@@ -15,15 +15,26 @@
   user-select: none;
 }
 
+.set-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.set-content img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* or cover */
+  display: block;
+}
+
 .arrow {
   transition: transform 0.2s ease;
 }
 
 .arrow.open {
   transform: rotate(180deg);
-}
-
-.set-content {
-  padding: 12px;
-  background: white;
 }
