@@ -1,1 +1,6 @@
-
+.sets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 20px 5vw;
+}

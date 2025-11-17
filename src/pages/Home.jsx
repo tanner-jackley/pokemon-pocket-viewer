@@ -11,7 +11,7 @@ function Home() {
   return (
     <>
       <h1>Pokémon Pocket Viewer</h1>
-      <div>
+      <div className="sets-container">
         {sets.map((set) => (
           <SetSection key={set.id} set={set} />
         ))}
