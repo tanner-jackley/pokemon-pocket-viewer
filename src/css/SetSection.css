@@ -13,6 +13,7 @@
   cursor: pointer;
   font-weight: bold;
   user-select: none;
+  align-items: center;
 }
 
 .set-content {
@@ -29,6 +30,11 @@
   height: auto;
   object-fit: contain; /* or cover */
   display: block;
+}
+
+.set-logo {
+  width: auto;
+  height: 50px;
 }
 
 .arrow {

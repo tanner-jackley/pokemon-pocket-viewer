@@ -20,6 +20,7 @@ function SetSection({ set }) {
     <div className="set-section">
       <div className="set-header" onClick={() => setOpen(!open)}>
         [{set.id}] {set.name}
+        <img src={`${set.logo}.png`} alt={set.name} className="set-logo"></img>
       </div>
 
       {open && <CardGrid cards={cards} />}
