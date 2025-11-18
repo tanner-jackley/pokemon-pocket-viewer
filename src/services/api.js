@@ -28,3 +28,14 @@ export const getCardsFromSet = async (setId) => {
   });
   return cards;
 };
+
+export const getNormalCardsFromSet = async (setId) => {
+  const set = await getSet(setId);
+
+  // Limit to the official count
+  const cardIds = set.cards.slice(0, set.cardCount.official);
+
+  const cards = await Promise.all(cardIds.map((card) => getCard(card.id)));
+
+  return cards;
+};

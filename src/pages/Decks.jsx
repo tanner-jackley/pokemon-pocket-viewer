@@ -1,6 +1,6 @@
 import "../css/Home.css";
 import CardCard from "../components/IndividualCard.jsx";
-import { getSets, getCardsFromSet } from "../services/api.js";
+import { getSets, getNormalCardsFromSet } from "../services/api.js";
 import IndividualCard from "../components/IndividualCard.jsx";
 import CardGrid from "../components/CardGrid.jsx";
 import SetSection from "../components/SetSection.jsx";
@@ -13,7 +13,7 @@ function Decks() {
     async function load() {
       const sets = await getSets();
       sets.map(async (set) => {
-        const data = await getCardsFromSet(set.id);
+        const data = await getNormalCardsFromSet(set.id);
 
         setCards((prev) => {
           const merged = [...prev, ...data];
