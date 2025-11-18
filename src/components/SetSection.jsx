@@ -3,7 +3,7 @@ import "../css/SetSection.css";
 import CardGrid from "./CardGrid";
 import { getCardsFromSet } from "../services/api.js";
 
-export default function SetSection({ set }) {
+function SetSection({ set }) {
   const [open, setOpen] = useState(false);
   const [cards, setCards] = useState([]);
   //const [loading, setLoading] = useState(false);
@@ -26,3 +26,5 @@ export default function SetSection({ set }) {
     </div>
   );
 }
+
+export default SetSection;
