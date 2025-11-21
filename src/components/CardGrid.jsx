@@ -2,9 +2,7 @@ import IndividualCard from "./IndividualCard";
 import { useState } from "react";
 import CardPopup from "../components/CardPopup.jsx";
 
-function CardGrid({ cards }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [card, setCard] = useState(null);
+function CardGrid({ cards, onCardClick }) {
   return (
     <>
       <div className="set-content">
@@ -12,14 +10,10 @@ function CardGrid({ cards }) {
           <IndividualCard
             key={card.id}
             card={card}
-            onClick={() => {
-              setIsOpen(true);
-              setCard(card);
-            }}
+            onClick={() => onCardClick && onCardClick(card)}
           />
         ))}
       </div>
-      <CardPopup isOpen={isOpen} card={card} onClose={() => setIsOpen(false)} />
     </>
   );
 }

@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import "../css/SetSection.css";
 import CardGrid from "./CardGrid";
 import { getCardsFromSet } from "../services/api.js";
+import CardPopup from "./CardPopup.jsx";
 
 function SetSection({ set }) {
+  const [card, setCard] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [cards, setCards] = useState([]);
   //const [loading, setLoading] = useState(false);
@@ -17,14 +20,29 @@ function SetSection({ set }) {
   }, [set.id]);
 
   return (
-    <div className="set-section">
-      <div className="set-header" onClick={() => setOpen(!open)}>
-        [{set.id}] {set.name}
-        <img src={`${set.logo}.png`} alt={set.name} className="set-logo"></img>
-      </div>
+    <>
+      <div className="set-section">
+        <div className="set-header" onClick={() => setOpen(!open)}>
+          [{set.id}] {set.name}
+          <img
+            src={`${set.logo}.png`}
+            alt={set.name}
+            className="set-logo"
+          ></img>
+        </div>
 
-      {open && <CardGrid cards={cards} />}
-    </div>
+        {open && (
+          <CardGrid
+            cards={cards}
+            onCardClick={(clickedCard) => {
+              setIsOpen(true);
+              setCard(clickedCard);
+            }}
+          />
+        )}
+      </div>
+      <CardPopup isOpen={isOpen} card={card} onClose={() => setIsOpen(false)} />
+    </>
   );
 }
 

@@ -31,7 +31,12 @@ function Decks() {
     <>
       <h1>Decks</h1>
       <div className="sets-container">
-        <CardGrid cards={cards} />
+        <CardGrid
+          cards={cards}
+          onCardClick={(clickedCard) => {
+            alert(`Clicked on ${clickedCard.name} [${clickedCard.id}]`);
+          }}
+        />
       </div>
     </>
   );
