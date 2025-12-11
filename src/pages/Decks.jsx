@@ -37,7 +37,15 @@ function Decks() {
         <CardGrid
           cards={cards}
           onCardClick={(clickedCard) => {
-            setDeck((prevDeck) => [...prevDeck, clickedCard]);
+            if (deck.find((card) => card.id === clickedCard.id)) {
+              alert("Card already in deck");
+              return;
+            }
+            if (deck.length < 20) {
+              setDeck((prevDeck) => [...prevDeck, clickedCard]);
+            } else {
+              alert("Deck is full (max 20 cards)");
+            }
           }}
         />
       </div>

@@ -1,2 +1,11 @@
-.deck-builder-container {
+.deck-builder-container .set-content {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 1rem;
+  justify-content: start;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.deck-builder-container .set-content .individual-card {
 }
