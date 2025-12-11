@@ -5,9 +5,11 @@ import IndividualCard from "../components/IndividualCard.jsx";
 import CardGrid from "../components/CardGrid.jsx";
 import SetSection from "../components/SetSection.jsx";
 import { useState, useEffect } from "react";
+import DeckBuilder from "../components/DeckBuilder.jsx";
 
 function Decks() {
   const [cards, setCards] = useState([]);
+  const [deck, setDeck] = useState([]);
 
   useEffect(() => {
     async function load() {
@@ -30,11 +32,12 @@ function Decks() {
   return (
     <>
       <h1>Decks</h1>
+      <DeckBuilder cards={deck} />
       <div className="sets-container">
         <CardGrid
           cards={cards}
           onCardClick={(clickedCard) => {
-            alert(`Clicked on ${clickedCard.name} [${clickedCard.id}]`);
+            setDeck((prevDeck) => [...prevDeck, clickedCard]);
           }}
         />
       </div>

@@ -1,5 +1,4 @@
 import IndividualCard from "./IndividualCard";
-import { useState } from "react";
 import CardPopup from "../components/CardPopup.jsx";
 
 function CardGrid({ cards, onCardClick }) {
