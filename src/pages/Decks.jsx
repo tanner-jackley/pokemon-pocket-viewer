@@ -11,6 +11,19 @@ function Decks() {
   const [cards, setCards] = useState([]);
   const [deck, setDeck] = useState([]);
 
+  function checkCardQuanitity(deck, card) {
+    const count = deck.filter((c) => c.id === card.id).length;
+    return count;
+  }
+
+  function onCardRemove(card) {
+    setDeck((prevDeck) => {
+      const index = prevDeck.findIndex((c) => c.id === card.id);
+      if (index === -1) return prevDeck;
+      return [...prevDeck.slice(0, index), ...prevDeck.slice(index + 1)];
+    });
+  }
+
   useEffect(() => {
     async function load() {
       const sets = await getSets();
@@ -32,13 +45,14 @@ function Decks() {
   return (
     <>
       <h1>Decks</h1>
-      <DeckBuilder cards={deck} />
+      <DeckBuilder cards={deck} onCardRemove={onCardRemove} />
       <div className="sets-container">
         <CardGrid
           cards={cards}
           onCardClick={(clickedCard) => {
-            if (deck.find((card) => card.id === clickedCard.id)) {
-              alert("Card already in deck");
+            // Deck requirement checks
+            if (checkCardQuanitity(deck, clickedCard) >= 2) {
+              alert("Can only have 2 copies of the same card in a deck");
               return;
             }
             if (deck.length < 20) {

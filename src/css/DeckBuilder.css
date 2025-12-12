@@ -9,3 +9,7 @@
 
 .deck-builder-container .set-content .individual-card {
 }
+
+.deck-builder-warning {
+  color: red;
+}
